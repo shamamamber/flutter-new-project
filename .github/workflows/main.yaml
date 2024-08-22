@@ -60,10 +60,7 @@ jobs:
         with:
           status: success
           fields: repo,commit
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
-          SLACK_USERNAME: 'Build Info'
+
 
       - name: Notify on failure
         if: failure()
@@ -71,7 +68,4 @@ jobs:
         with:
           status: failure
           fields: repo,commit
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
-          SLACK_USERNAME: 'Build Info'
+        
