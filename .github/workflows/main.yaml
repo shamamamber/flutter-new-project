@@ -50,8 +50,8 @@ jobs:
 
             # Additional commands to troubleshoot the tput error
             export TERM=xterm
-            git config --global --add safe.directory /home/cmjbuggy/crmdev.atvandbuggy.com
-            cd /home/cmjbuggy/crmdev.atvandbuggy.com
+            git config --global --add safe.directory /home/techozon/deployflutterapp.techozon.com
+            cd /home/techozon/deployflutterapp.techozon.com
             
 
       - name: Notify on success
