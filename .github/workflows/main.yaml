@@ -27,7 +27,7 @@ jobs:
       - name: Build Flutter App
         run: flutter build web --web-renderer html --release
 
-      - name: Deploy to cPanel
+      - name: Deploy to cPanel via SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.CPANEL_HOST }}
@@ -36,8 +36,7 @@ jobs:
           port: 17177  # Specify your cPanel SSH port
           script: |
             export TERM=xterm
-            git config --global --add safe.directory /home/cmjbuggy/crmdev.atvandbuggy.com
-            cd /home/cmjbuggy/crmdev.atvandbuggy.com
+            cd /home/techozon/deployflutterapp.techozon.com
             # Remove previous build
             rm -rf build
 
@@ -48,24 +47,11 @@ jobs:
             # Install dependencies (if needed)
             flutter pub get
 
-            # Additional commands to troubleshoot the tput error
-            export TERM=xterm
-            git config --global --add safe.directory /home/cmjbuggy/crmdev.atvandbuggy.com
-            cd /home/cmjbuggy/crmdev.atvandbuggy.com
-            
-
-      - name: Notify on success
+      - name: Notify on Success
         if: success()
-        uses: 8398a7/action-slack@v3
-        with:
-          status: success
-          fields: repo,commit
+        run: echo "Deployment successful!"
 
-
-      - name: Notify on failure
+      - name: Notify on Failure
         if: failure()
-        uses: 8398a7/action-slack@v3
-        with:
-          status: failure
-          fields: repo,commit
-        
+        run: echo "Deployment failed!"
+
