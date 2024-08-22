@@ -36,8 +36,8 @@ jobs:
           port: 17177  # Specify your cPanel SSH port
           script: |
             export TERM=xterm
-            git config --global --add safe.directory /home/cmjbuggy/crmdev.atvandbuggy.com
-            cd /home/cmjbuggy/crmdev.atvandbuggy.com
+            git config --global --add safe.directory /home/techozon/deployflutterapp.techozon.com
+            cd /home/techozon/deployflutterapp.techozon.com
             # Remove previous build
             rm -rf build
 
