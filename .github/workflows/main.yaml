@@ -47,11 +47,11 @@ jobs:
             # Install dependencies (if needed)
             flutter pub get
 
-      - name: Notify on Success
+      - name: Notify on Success 544
         if: success()
         run: echo "Deployment successful!"
 
-      - name: Notify on Failure
+      - name: Notify on Failure 2 
         if: failure()
         run: echo "Deployment failed!"
 
